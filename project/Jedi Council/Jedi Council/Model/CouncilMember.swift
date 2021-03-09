@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct CouncilMember {
-    enum Rank {
-        case grandmaster
-        case headOfCouncil
-        case master
-        case knight
+struct CouncilMember: Codable {
+    enum Rank: String, Codable {
+        case grandmaster = "Grandmaster"
+        case headOfCouncil = "Head of Jedi Council"
+        case master = "Master"
+        case knight = "Knight"
     }
     let id: String
     let name: String

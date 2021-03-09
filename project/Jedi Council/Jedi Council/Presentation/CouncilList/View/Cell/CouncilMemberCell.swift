@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class CouncilMemberCell: UICollectionViewCell {
     @IBOutlet private var imageView: UIImageView!
@@ -14,11 +15,19 @@ class CouncilMemberCell: UICollectionViewCell {
 
     private var member: CouncilMember?
 
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        imageView.kf.indicatorType = .activity
+    }
+    
     func set(member: CouncilMember) {
         self.member = member
-        imageView.image = member.imageUrl == nil
-            ? #imageLiteral(resourceName: "No-Image-Placeholder")
-            : nil
+        if let imageUrl = member.imageUrl {
+            imageView.kf.setImage(with: imageUrl)
+        } else {
+            imageView.kf.cancelDownloadTask()
+            imageView.image = #imageLiteral(resourceName: "No-Image-Placeholder")
+        }
         nameLabel.text = member.name
         rankLabel.text = name(of: member.rank)
     }
