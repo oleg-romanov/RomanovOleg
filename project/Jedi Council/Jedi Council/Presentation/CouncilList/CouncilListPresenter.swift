@@ -12,6 +12,7 @@ protocol CouncilListPresentationLogic: AnyObject {
 }
 
 class CouncilListPresenter: CouncilListPresentationLogic {
+    // Нет dependency injection.
     private let service: CouncilService = CouncilMoyaService()
     weak var delegate: CouncilListViewLogic?
     

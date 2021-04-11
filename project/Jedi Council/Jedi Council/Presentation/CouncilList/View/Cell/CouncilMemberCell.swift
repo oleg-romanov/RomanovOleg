@@ -22,12 +22,7 @@ class CouncilMemberCell: UICollectionViewCell {
     
     func set(member: CouncilMember) {
         self.member = member
-        if let imageUrl = member.imageUrl {
-            imageView.kf.setImage(with: imageUrl)
-        } else {
-            imageView.kf.cancelDownloadTask()
-            imageView.image = #imageLiteral(resourceName: "No-Image-Placeholder")
-        }
+        imageView.kf.setImage(with: member.imageUrl, placeholder: #imageLiteral(resourceName: "No-Image-Placeholder"))
         nameLabel.text = member.name
         rankLabel.text = name(of: member.rank)
     }
