@@ -35,6 +35,7 @@ class CouncilListView: UIView {
 
 extension CouncilListView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // ?
 //        service.loadMemberDetails(id: members[indexPath.item].id) { [self] result in
 //            switch result {
 //                case .success(let memberDetails):

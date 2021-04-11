@@ -11,6 +11,7 @@ class CouncilFlowCoordinator {
     private let storyboard = UIStoryboard(name: "Main", bundle: nil)
 
     func startViewController() -> UIViewController {
+        // Тема координаторов не раскрыта.
         UINavigationController(rootViewController: storyboard.instantiateViewController(withIdentifier: "CouncilListViewController"))
     }
 }
